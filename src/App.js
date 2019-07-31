@@ -28,22 +28,11 @@ class Board extends Component {
   render() {
     return (
       <div className="board">
-        <Cell number={this.state.board[0][0]} isInitial={true} />
-        <Cell number={this.state.board[0][1]} />
-        <Cell number={this.state.board[0][2]} />
-        <Cell number={this.state.board[0][3]} isInitial />
-        <Cell number={this.state.board[1][0]} />
-        <Cell number={this.state.board[1][1]} />
-        <Cell number={this.state.board[1][2]} />
-        <Cell number={this.state.board[1][3]} />
-        <Cell number={this.state.board[2][0]} />
-        <Cell number={this.state.board[2][1]} />
-        <Cell number={this.state.board[2][2]} isInitial />
-        <Cell number={this.state.board[2][3]} />
-        <Cell number={this.state.board[3][0]} isInitial />
-        <Cell number={this.state.board[3][1]} />
-        <Cell number={this.state.board[3][2]} />
-        <Cell number={this.state.board[3][3]} />
+        {
+          this.state.board.map((row) =>
+            row.map((number)=> <Cell number={number} />)
+          )
+        }
       </div>
     );
   }
