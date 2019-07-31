@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 
 class Cell extends Component {
-  state = {
-    number: 1
-  };
   render() {
     return (
       <div
         onClick={e => {
-          this.setState({
-            number: (this.props.number + 1) % 5
-          });
+          this.props.onChange((this.props.number + 1) % 5);
         }}
         className={`cell ${this.props.isInitial ? "initial" : ""}`}
       >
@@ -40,6 +35,13 @@ class Board extends Component {
               number={number}
               key={`cell-${rowIndex}-${columnIndex}`}
               isInitial={this.state.initial[rowIndex][columnIndex]}
+              onChange={newNumber => {
+                const { board } = this.state;
+                board[rowIndex][columnIndex] = newNumber;
+                this.setState({
+                  board
+                });
+              }}
             />
           ))
         )}
