@@ -21,9 +21,9 @@ class Cell extends Component {
   }
 }
 
-function App() {
-  return (
-    <div className="App">
+class Board extends Component {
+  render() {
+    return (
       <div className="board">
         <Cell number={2} isInitial={true} />
         <Cell number={1} />
@@ -42,6 +42,14 @@ function App() {
         <Cell number={1} />
         <Cell number={1} />
       </div>
+    );
+  }
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Board />
     </div>
   );
 }
