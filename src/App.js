@@ -29,8 +29,8 @@ class Board extends Component {
     return (
       <div className="board">
         {
-          this.state.board.map((row) =>
-            row.map((number)=> <Cell number={number} />)
+          this.state.board.map((row, rowIndex) =>
+            row.map((number, columnIndex)=> <Cell number={number} key={`cell-${rowIndex}-${columnIndex}`} />)
           )
         }
       </div>
