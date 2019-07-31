@@ -3,7 +3,7 @@ import './App.css';
 
 class Cell extends Component {
   render() {
-    return (<div className="cell">{this.props.number}</div>)
+    return (<div onClick={(e)=>{alert(this.props.number)}} className="cell">{this.props.number}</div>)
   }
 }
 
