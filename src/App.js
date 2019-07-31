@@ -23,12 +23,12 @@ class Cell extends Component {
 
 class Board extends Component {
   state = {
-    board: [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
+    board: [[1, 2, 3, 4], [3, 4, 0, 0], [2, 0, 4, 0], [4, 0, 0, 2]],
     initial: [
+      [true, true, true, true],
+      [true, true, false, false],
       [true, false, true, false],
-      [true, false, true, false],
-      [true, false, true, false],
-      [true, false, true, false]
+      [true, false, false, true]
     ]
   };
   render() {
