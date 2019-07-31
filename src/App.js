@@ -23,16 +23,26 @@ class Cell extends Component {
 
 class Board extends Component {
   state = {
-    board: [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+    board: [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]],
+    initial: [
+      [true, false, true, false],
+      [true, false, true, false],
+      [true, false, true, false],
+      [true, false, true, false]
+    ]
   };
   render() {
     return (
       <div className="board">
-        {
-          this.state.board.map((row, rowIndex) =>
-            row.map((number, columnIndex)=> <Cell number={number} key={`cell-${rowIndex}-${columnIndex}`} />)
-          )
-        }
+        {this.state.board.map((row, rowIndex) =>
+          row.map((number, columnIndex) => (
+            <Cell
+              number={number}
+              key={`cell-${rowIndex}-${columnIndex}`}
+              isInitial={this.state.initial[rowIndex][columnIndex]}
+            />
+          ))
+        )}
       </div>
     );
   }
