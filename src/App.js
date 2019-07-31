@@ -1,9 +1,23 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class Cell extends Component {
+  state = {
+    number: 1
+  };
   render() {
-    return (<div onClick={(e)=>{alert(this.props.number)}} className="cell">{this.props.number}</div>)
+    return (
+      <div
+        onClick={e => {
+          this.setState({
+            number: (this.state.number + 1) % 5
+          });
+        }}
+        className="cell"
+      >
+        {this.state.number !== 0 && this.state.number}
+      </div>
+    );
   }
 }
 
