@@ -3,7 +3,7 @@ import './App.css';
 
 class Cell extends Component {
   render() {
-    return (<div className="cell">1</div>)
+    return (<div className="cell">{this.props.number}</div>)
   }
 }
 
@@ -11,22 +11,22 @@ function App() {
   return (
     <div className="App">
       <div className="board">
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
-        <Cell />
+        <Cell number={2} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
+        <Cell number={1} />
       </div>
     </div>
   );
