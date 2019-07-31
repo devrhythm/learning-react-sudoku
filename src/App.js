@@ -6,6 +6,9 @@ class Cell extends Component {
     return (
       <div
         onClick={e => {
+          if (this.props.isInitial) {
+            return;
+          }
           this.props.onChange((this.props.number + 1) % 5);
         }}
         className={`cell ${this.props.isInitial ? "initial" : ""}`}
