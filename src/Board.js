@@ -38,13 +38,21 @@ class Board extends Component {
   };
 
   componentDidMount() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.setState({ timer: this.state.timer + 1 });
     }, 1000);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   submit = () => {
     const isValid = validate(this.state.board);
+    if (isValid) {
+      clearInterval(this.interval);
+    }
+
     this.setState({
       statusText: isValid ? "Board is complete !!" : "Board is invalid !!"
     });
@@ -53,7 +61,7 @@ class Board extends Component {
   render() {
     return (
       <div>
-            <p className="timer">Elapsed Time: {this.state.timer} seconds</p>
+        <p className="timer">Elapsed Time: {this.state.timer} seconds</p>
         <div className="board">
           {this.state.board.map((row, rowIndex) =>
             row.map((number, columnIndex) => (
