@@ -33,8 +33,15 @@ class Board extends Component {
       [true, false, true, false],
       [true, false, false, true]
     ],
-    statusText: ""
+    statusText: "",
+    timer: 0
   };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ timer: this.state.timer + 1 });
+    }, 1000);
+  }
 
   submit = () => {
     const isValid = validate(this.state.board);
@@ -46,6 +53,7 @@ class Board extends Component {
   render() {
     return (
       <div>
+            <p className="timer">Elapsed Time: {this.state.timer} seconds</p>
         <div className="board">
           {this.state.board.map((row, rowIndex) =>
             row.map((number, columnIndex) => (
